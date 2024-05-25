@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct GalleryAppApp: App {
-    let persistenceController = PersistenceController.shared
+    
+//    private var imageManager = ImageDataManager()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            SplashVC()
+//                .environmentObject(imageManager)
+//                .environment(\.managedObjectContext, imageManager.container.viewContext)
         }
     }
 }
