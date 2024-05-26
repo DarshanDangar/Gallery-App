@@ -12,10 +12,8 @@
 		CD9033352C022BE200970D9A /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9033342C022BE200970D9A /* UserDefault.swift */; };
 		CD9033372C0253C500970D9A /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9033362C0253C500970D9A /* ImageDataManager.swift */; };
 		CDA6A2032C01BA790088C0FC /* GalleryAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A2022C01BA790088C0FC /* GalleryAppApp.swift */; };
-		CDA6A2052C01BA790088C0FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A2042C01BA790088C0FC /* ContentView.swift */; };
 		CDA6A2072C01BA7B0088C0FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA6A2062C01BA7B0088C0FC /* Assets.xcassets */; };
 		CDA6A20A2C01BA7B0088C0FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA6A2092C01BA7B0088C0FC /* Preview Assets.xcassets */; };
-		CDA6A20C2C01BA7B0088C0FC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A20B2C01BA7B0088C0FC /* Persistence.swift */; };
 		CDA6A20F2C01BA7B0088C0FC /* GalleryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A20D2C01BA7B0088C0FC /* GalleryApp.xcdatamodeld */; };
 		CDA6A21C2C01BC140088C0FC /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A21B2C01BC140088C0FC /* SplashVC.swift */; };
 		CDA6A21E2C01BC1F0088C0FC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6A21D2C01BC1F0088C0FC /* HomeVC.swift */; };
@@ -44,10 +42,8 @@
 		CD9033362C0253C500970D9A /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
 		CDA6A1FF2C01BA790088C0FC /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA6A2022C01BA790088C0FC /* GalleryAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAppApp.swift; sourceTree = "<group>"; };
-		CDA6A2042C01BA790088C0FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CDA6A2062C01BA7B0088C0FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA6A2092C01BA7B0088C0FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CDA6A20B2C01BA7B0088C0FC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CDA6A20E2C01BA7B0088C0FC /* GalleryApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GalleryApp.xcdatamodel; sourceTree = "<group>"; };
 		CDA6A21B2C01BC140088C0FC /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		CDA6A21D2C01BC1F0088C0FC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -101,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA6A2462C01F4290088C0FC /* Info.plist */,
+				CDA6A21A2C01BAF50088C0FC /* AppDelegate */,
 				CDA6A2172C01BABA0088C0FC /* Screen */,
 				CDA6A2182C01BAC20088C0FC /* Model */,
 				CDA6A2392C01EA2F0088C0FC /* WebService */,
@@ -109,7 +106,6 @@
 				CDA6A2162C01BAA70088C0FC /* Core Data */,
 				CDA6A23C2C01EAA70088C0FC /* Utils */,
 				CDA6A2152C01BA950088C0FC /* Resources */,
-				CDA6A21A2C01BAF50088C0FC /* Extra */,
 				CDA6A2082C01BA7B0088C0FC /* Preview Content */,
 			);
 			path = GalleryApp;
@@ -173,14 +169,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		CDA6A21A2C01BAF50088C0FC /* Extra */ = {
+		CDA6A21A2C01BAF50088C0FC /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				CDA6A2022C01BA790088C0FC /* GalleryAppApp.swift */,
-				CDA6A2042C01BA790088C0FC /* ContentView.swift */,
-				CDA6A20B2C01BA7B0088C0FC /* Persistence.swift */,
 			);
-			path = Extra;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		CDA6A2392C01EA2F0088C0FC /* WebService */ = {
@@ -296,14 +290,12 @@
 				CDA6A21C2C01BC140088C0FC /* SplashVC.swift in Sources */,
 				CD9033332C022B6200970D9A /* SessionManager.swift in Sources */,
 				CDA6A2212C01BC310088C0FC /* ProfileVC.swift in Sources */,
-				CDA6A20C2C01BA7B0088C0FC /* Persistence.swift in Sources */,
 				CDA6A2232C01BC420088C0FC /* ImageVC.swift in Sources */,
 				CDA6A23B2C01EA720088C0FC /* WebService.swift in Sources */,
 				CDA6A2402C01EC4E0088C0FC /* AppEnvironment.swift in Sources */,
 				CDA6A2252C01BC660088C0FC /* LoginVC.swift in Sources */,
 				CD9033372C0253C500970D9A /* ImageDataManager.swift in Sources */,
 				CDA6A21E2C01BC1F0088C0FC /* HomeVC.swift in Sources */,
-				CDA6A2052C01BA790088C0FC /* ContentView.swift in Sources */,
 				CD9033352C022BE200970D9A /* UserDefault.swift in Sources */,
 				CDA6A2032C01BA790088C0FC /* GalleryAppApp.swift in Sources */,
 				CDA6A2372C01D9D40088C0FC /* AuthModel.swift in Sources */,
