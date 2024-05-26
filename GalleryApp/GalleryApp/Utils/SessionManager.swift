@@ -25,5 +25,18 @@ class SessionManager {
             appUserData = try? JSONEncoder().encode(newValue)
         }
     }
+    
+    @UserDefault("ImageData", defaultValue: nil)
+    var ImageData: Data?
+    
+    var images: [Hit] {
+        get {
+            guard let ImageData else {return []}
+            return try! JSONDecoder().decode([Hit].self, from: ImageData)
+        }
+        set {
+            ImageData = try? JSONEncoder().encode(newValue)
+        }
+    }
 
 }

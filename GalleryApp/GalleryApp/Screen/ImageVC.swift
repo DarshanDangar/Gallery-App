@@ -10,6 +10,7 @@ import Kingfisher
 
 struct ImageVC: View {
     
+    // MARK: - Variables
     var url: String?
     @Environment(\.dismiss) var dismiss
     

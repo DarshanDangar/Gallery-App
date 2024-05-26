@@ -10,6 +10,7 @@ import GoogleSignIn
 
 struct SplashVC: View {
     
+    // MARK: - Variables
     @State var isPresentLogin: Bool = false
     @State var isPresentHome: Bool = false
     

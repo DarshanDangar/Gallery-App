@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginVC: View {
     
+    // MARK: - Variables
     @State private var isLogin = false
     @StateObject private var authViewModel = AuthViewModel()
     

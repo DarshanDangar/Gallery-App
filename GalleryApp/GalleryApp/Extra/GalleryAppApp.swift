@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct GalleryAppApp: App {
     
-//    private var imageManager = ImageDataManager()
+    private var imageManager = ImageDataManager()
 
     var body: some Scene {
         WindowGroup {
             SplashVC()
-//                .environmentObject(imageManager)
-//                .environment(\.managedObjectContext, imageManager.container.viewContext)
+                .environmentObject(imageManager)
+                .environment(\.managedObjectContext, imageManager.container.viewContext)
         }
     }
 }

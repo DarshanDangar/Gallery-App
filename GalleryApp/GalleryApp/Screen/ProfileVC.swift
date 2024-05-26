@@ -10,10 +10,9 @@ import Kingfisher
 
 struct ProfileVC: View {
     
+    // MARK: - Variables
     @Environment(\.dismiss) var dismiss
-    
     @State var isPresentLogin: Bool = false
-    
     @StateObject private var vm = AuthViewModel()
     
     var body: some View {

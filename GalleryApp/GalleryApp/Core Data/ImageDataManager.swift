@@ -15,7 +15,7 @@ class ImageDataManager: NSObject, ObservableObject {
     let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "ImageData")
+        container = NSPersistentContainer(name: "GalleryApp")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -37,5 +37,19 @@ class ImageDataManager: NSObject, ObservableObject {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    
+    func saveImages(data: [Hit]) {
+        _ = data.compactMap({ data in
+            let newImages = ImageData(context: container.viewContext)
+            newImages.largeImageURL = data.largeImageURL
+            do {
+                try container.viewContext.save()
+            } catch {
+                // Handle errors gracefully, display error toast
+                print(error.localizedDescription)
+            }
+        })
+    }
+    
     
 }

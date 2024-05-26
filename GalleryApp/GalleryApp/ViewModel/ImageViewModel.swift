@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class ImageViewModel: ObservableObject {
     
@@ -16,12 +17,30 @@ class ImageViewModel: ObservableObject {
             if status == true {
                 if request?.page == 1 {
                     self.images = response
+                    SessionManager.shared.images = response?.hits ?? []
                 } else {
                     self.images?.hits?.append(contentsOf: response?.hits ?? [])
+                    SessionManager.shared.images.append(contentsOf: response?.hits ?? [])
                 }
             }
         }
         
     }
     
+}
+
+extension ImageViewModel {
+//    func addImages() {
+//        _ = images?.hits?.compactMap({ data in
+//            let newImages = ImageData(context: viewContext)
+//            newImages.largeImageURL = data.largeImageURL
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Handle errors gracefully, display error toast
+//                print(error.localizedDescription)
+//            }
+//        })
+//        
+//    }
 }

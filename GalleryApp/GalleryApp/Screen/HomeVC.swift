@@ -10,18 +10,22 @@ import CoreData
 
 struct HomeVC: View {
     
+    // MARK: - Variables
     @State var isPresentProfile: Bool = false
     @State var isDetailScreen: Bool = false
     @State var imageString = ""
     
     @StateObject private var imageViewModel = ImageViewModel()
     
-//    @EnvironmentObject var manager: ImageDataManager
-//    @Environment(\.managedObjectContext) private var viewContext
-//    @FetchRequest(entity: ImageData.entity(), sortDescriptors: []) private var fetchedImages: FetchedResults<ImageData>
+    @EnvironmentObject var manager: ImageDataManager
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: ImageData.entity(), sortDescriptors: []) private var fetchedImages: FetchedResults<ImageData>
     private let gridItem = [GridItem(.flexible(), spacing: 18),
                             GridItem(.flexible(), spacing: 18)]
     private var reqModel = GalleryRequest()
+    
+    @State var offlineImages: [Hit] = []
     
     var body: some View {
         
@@ -45,7 +49,7 @@ struct HomeVC: View {
                 
                 ScrollView {
                     LazyVGrid(columns: gridItem, content: {
-                        ForEach(imageViewModel.images?.hits ?? []) { data in
+                        ForEach(imageViewModel.images?.hits ?? offlineImages) { data in
                             ImageCell(image: data.largeImageURL)
                                 .onTapGesture {
                                     imageString = data.largeImageURL ?? ""
@@ -68,6 +72,7 @@ struct HomeVC: View {
             
             .onAppear {
                 getImages()
+                addImages()
             }
             .navigationDestination(isPresented: $isPresentProfile, destination: {
                 ProfileVC()
@@ -85,34 +90,34 @@ struct HomeVC: View {
     HomeVC()
 }
 
+// MARK: - get Images
 extension HomeVC {
     
     func getImages() {
-        imageViewModel.getImagesApi(request: GalleryRequest())
+        // network is not connected then use offline images
+        if !Reachability.isConnectedToNetwork(), !SessionManager.shared.images.isEmpty {
+            offlineImages = SessionManager.shared.images
+        } else {
+            imageViewModel.getImagesApi(request: GalleryRequest())
+        }
     }
     
 }
 
+// MARK: - add Images in Coredata
 extension HomeVC {
     
     func addImages() {
-//        _ = imageViewModel.images?.hits?.compactMap({ data in
-//            let newImages = ImageData(context: viewContext)
-//            newImages.largeImageURL = data.largeImageURL
-//            newImages.id = data.id?.description
-//            newImages.collections = data.collections
-//            newImages.comments = data.comments
-//            newImages.downloads = data.downloads
-//            newImages.imageHeight = data.imageHeight
-//            newImages
-//            do {
-//                try viewContext.save()
-                //            toast = Toast(style: .success, message: "Account added successfully!")
-//            } catch {
-//                // Handle errors gracefully, display error toast
-//                print(error.localizedDescription)
-//            }
-//        })
+        _ = imageViewModel.images?.hits?.compactMap({ data in
+            let newImages = ImageData(context: viewContext)
+            newImages.largeImageURL = data.largeImageURL
+            do {
+                try viewContext.save()
+            } catch {
+                // Handle errors gracefully, display error toast
+                print(error.localizedDescription)
+            }
+        })
         
     }
     

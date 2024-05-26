@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 struct EmptyCodable: Codable {
-//    44065942-9c4f4af44fa984d6b39cc5e6a
 }
 
 //class UnsplashAPIClient {
